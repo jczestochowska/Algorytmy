@@ -45,6 +45,17 @@ class Graph:
         for item in self.weight_matrix:
             del item[node]
 
+    def neigbours_and_edges_number(self,node):
+        count = 0;
+        for item in self.weight_matrix[node]:
+            if item != 0:
+                count += 1
+        print(count)
+        return count
+
+    def node_number(self):
+        print(len(self.weight_matrix))
+        return len(self.weight_matrix)
 
 
 
@@ -69,3 +80,4 @@ if __name__ == '__main__':
     graph.remove_node(0)
     print('\n')
     print(graph.weight_matrix)
+    graph.neigbours_and_edges_number(0)
