@@ -3,11 +3,8 @@
 
 class Graph:
 
-    def __init__(self, weight_matrix):
-        if not weight_matrix:
+    def __init__(self):
             self.list_neighbours = {}
-        else:
-            self.list_neighbours = weight_matrix
 
 
     def add_node(self, new_node):
@@ -36,18 +33,62 @@ class Graph:
         print(self.list_neighbours.items())
 
 
-    #
-    def remove_edge(self, start, end, directed):
+
+    def remove_node(self,start):
+            del self.list_neighbours[start]
+            list_values = self.list_neighbours.values()
+            for value in list_values:
+                index = 0;
+                temp_range = len(value)
+                for i in range(temp_range):
+                    if value[index][0] == start:
+                        value.remove(value[index])
+                        i += 1
+                    else:
+                        i += 1
+                        index += 1
+
+    def remove_edge(self,start,end,directed):
         if directed is True:
-            self.list_neighbours[start] = []
+            list_values = self.list_neighbours.values()
+            for value in list_values:
+                index = 0;
+                temp_range = len(value)
+                for i in range(temp_range):
+                    if value[index][0] == start:
+                        value.remove(value[index])
+                        i += 1
+                    else:
+                        i += 1
+                        index += 1
         else:
-            self.list_neighbours[start] = []
-            self.list_neighbours[end] = []
+            list_values = self.list_neighbours.values()
+            for value in list_values:
+                index = 0;
+                temp_range = len(value)
+                for i in range(temp_range):
+                    if value[index][0] == start:
+                        value.remove(value[index])
+                        i += 1
+                    else:
+                        i += 1
+                        index += 1
+            list_values = self.list_neighbours.values()
+            for value in list_values:
+                index = 0;
+                temp_range = len(value)
+                for i in range(temp_range):
+                    if value[index][0] == end:
+                        value.remove(value[index])
+                        i += 1
+                    else:
+                        i += 1
+                        index += 1
+
 
 
 if __name__ == "__main__":
-
-    graph = Graph(None)
+    graph = Graph()
     graph.add_node('B')
     graph.add_node('A')
     graph.print_graph()
@@ -57,4 +98,12 @@ if __name__ == "__main__":
     graph.add_neighbour(7,'B','C',False)
     print('\n')
     graph.print_graph()
-
+    print('\n')
+    graph.add_edge(2,'C','A',False)
+    graph.print_graph()
+    print('\n')
+    graph.remove_node('A')
+    graph.print_graph()
+    graph.remove_edge('B','C', False)
+    print('\n')
+    graph.print_graph()
