@@ -37,6 +37,8 @@ if __name__ == "__main__":
     g.add_edge('B','E',4)
     g.add_edge('B','A',5)
     g.add_edge('A','C',6)
+    print(g.list_edges)
+    print('\n')
     print(kruskal_algorithm(g).list_edges)
 
 
