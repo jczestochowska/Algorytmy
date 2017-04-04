@@ -11,7 +11,6 @@ def kruskal_algorithm(graph):
     # lista zbiorow z ktorych kazdy zbior to osobne drzewo
     forest = []
     sub_graph = Graph()
-    iterations_count = 0
     for node in graph.list_nodes:
         forest.append(set([node]))
 
@@ -19,7 +18,6 @@ def kruskal_algorithm(graph):
         edge = graph.list_edges.pop()
         node1 = set(edge[0])
         node2 = set(edge[1])
-        iterations_count += 1
         for tree in forest:
             if node1.issubset(tree):
                 indx1 = forest.index(tree)
@@ -49,11 +47,11 @@ def graph_colouring(graph):
     s_g3 = gv.Graph(format='png')
     s_g4 = gv.Graph(format='png')
 
-    g.node('A')
-    g.node('B')
-    g.node('C')
-    g.node('D')
-    g.node('E')
+    g.node('A',color="blue")
+    g.node('B',color="yellow")
+    g.node('C',color="green")
+    g.node('D',color="pink")
+    g.node('E',color="red")
     g.edge('D','E',label = "1")
     g.edge('B','C',label = "2")
     g.edge('B','D',label = "3")
@@ -62,9 +60,9 @@ def graph_colouring(graph):
     g.edge('B','A',label = "5")
     g.edge('A','C',label = "6")
     #
-    s_g1.node('A')
-    s_g1.node('B')
-    s_g1.node('C')
+    s_g1.node('A',color="blue")
+    s_g1.node('B',color="yellow")
+    s_g1.node('C',color="green")
     s_g1.node('D',color="red")
     s_g1.node('E',color="red")
     s_g1.edge('D','E',label = "1",color="red")
@@ -75,20 +73,20 @@ def graph_colouring(graph):
     s_g1.edge('B','A',label = "5")
     s_g1.edge('A','C',label = "6")
 
-    s_g2.node('A')
-    s_g2.node('B',color="blue")
-    s_g2.node('C',color="blue")
+    s_g2.node('A',color="blue")
+    s_g2.node('B',color="green")
+    s_g2.node('C',color="green")
     s_g2.node('D',color="red")
     s_g2.node('E',color="red")
     s_g2.edge('D','E',label = "1",color="red")
-    s_g2.edge('B','C',label = "2",color="blue")
+    s_g2.edge('B','C',label = "2",color="green")
     s_g2.edge('B','D',label = "3")
     s_g2.edge('C','D',label = "3")
     s_g2.edge('B','E',label = "4")
     s_g2.edge('B','A',label = "5")
     s_g2.edge('A','C',label = "6")
     #
-    s_g3.node('A')
+    s_g3.node('A',color="blue")
     s_g3.node('B',color="red")
     s_g3.node('C',color="red")
     s_g3.node('D',color="red")
