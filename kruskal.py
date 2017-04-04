@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from Algorytmy_repo.list_edges_simple import *
+
+from list_edges_simple import *
 
 
 def kruskal_algorithm(graph):
@@ -9,11 +10,10 @@ def kruskal_algorithm(graph):
     # lista zbiorow z ktorych kazdy zbior to osobne drzewo
     forest = []
     sub_graph = Graph()
-    S = graph.list_edges
     for node in graph.list_nodes:
         forest.append(set([node]))
-    while S:
-        edge = S.pop()
+    while graph.list_edges:
+        edge = graph.list_edges.pop()
         node1 = set(edge[0])
         node2 = set(edge[1])
         for tree in forest:

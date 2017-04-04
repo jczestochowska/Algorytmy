@@ -1,4 +1,5 @@
-from Algorytmy_repo.weight_matrix_numpy import *
+
+from weight_matrix_numpy import *
 
 
 def prim_algorithm(graph):
@@ -32,13 +33,13 @@ if __name__ == '__main__':
     g.add_node()
     g.add_node()
     g.add_node()
-    g.add_edge(3, 4, 2)
-    g.add_edge(1, 2, 7)
-    g.add_edge(1, 3, 3)
-    g.add_edge(2, 3, 1)
-    g.add_edge(1, 4, 4)
-    g.add_edge(1, 0, 5)
-    g.add_edge(0, 2, 6)
+    g.add_edge(0,1,5)
+    g.add_edge(1,4,4)
+    g.add_edge(4,3,1)
+    g.add_edge(3,1,3)
+    g.add_edge(1,2,2)
+    g.add_edge(2,3,3)
+    g.add_edge(2,0,6)
     print(g.weight_matrix)
     print('\n')
     print(prim_algorithm(g))
