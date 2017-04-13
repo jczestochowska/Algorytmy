@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from weight_matrix_numpy import *
-from operator import itemgetter
 
 def dijkstra(graph,initial_node, final_node):
 
