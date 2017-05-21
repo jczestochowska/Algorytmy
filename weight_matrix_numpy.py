@@ -33,7 +33,40 @@ class Graph:
                 self.list_nodes.append(node2)
         return self
 
+    def increase_flow(self, increaser, node1, node2):
+        self.weight_matrix[node1, node2] += increaser
+        return self
 
+    def decrease_flow(self, decreaser, node1, node2):
+        self.weight_matrix[node1, node2] -= decreaser
+        return self
+
+    def edge_exists(self, node1, node2):
+        if self.weight_matrix[node1, node2] == 0:
+            return False
+        else:
+            return True
+
+    def path_exists(self, source, sink):
+
+        path = [-1] * len(self.weight_matrix)
+        queue = []
+        visited = [False] * len(self.weight_matrix)
+
+        queue.append(source)
+
+        while queue:
+            current = queue.pop(0)
+            for node, weight in enumerate(self.weight_matrix[current]):
+                if visited[node] == False and weight != 0:
+                    visited[node] = True
+                    path[node] = current
+                    queue.append(node)
+
+        if visited[sink] == True:
+            return True
+        else:
+            return False
 
 
 if __name__ == '__main__':
